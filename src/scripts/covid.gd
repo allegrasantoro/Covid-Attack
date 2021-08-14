@@ -1,16 +1,6 @@
-extends Area2D
+extends "res://src/scripts/movable.gd"
 
-export(float) var speed
 export(int) var infection_radius
-
-var direction = Vector2(1,0)
-
-func _process(_delta):
-	move()
-
-
-func move():
-	position += speed * direction
 
 
 func _input(event):

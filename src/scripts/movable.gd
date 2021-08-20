@@ -1,11 +1,12 @@
-extends Area2D
+extends KinematicBody2D
 
 export(float) var speed
 
-var direction = Vector2(1,0)
+var direction = Vector2(0,0)
 
 func _process(_delta):
 	move()
+	pass
 
 
 func move():

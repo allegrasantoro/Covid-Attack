@@ -1,20 +1,42 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/scripts/covid.gd" type="Script" id=1]
-[ext_resource path="res://assets/icon.png" type="Texture" id=2]
-[ext_resource path="res://src/scenes/movable.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/covid/Covid.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.0274, 31.1352 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 140.988
 
-[node name="covid" instance=ExtResource( 3 )]
+[sub_resource type="Animation" id=2]
+resource_name = "covid idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="covid" type="KinematicBody2D"]
+position = Vector2( 424.021, 221.749 )
+scale = Vector2( 0.425749, 0.425749 )
 script = ExtResource( 1 )
-speed = 0.8
+speed = 200
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-modulate = Color( 0.803922, 0.0392157, 0.0392157, 1 )
-self_modulate = Color( 0.898039, 0, 0, 1 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 488.927, 281.275 )
 texture = ExtResource( 2 )
+hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 488.551, 282.932 )
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/covid idle" = SubResource( 2 )

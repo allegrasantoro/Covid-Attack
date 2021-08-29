@@ -1,5 +1,3 @@
-#extends "res://src/scripts/movable.gd"
-#export(int) var infection_radius
 extends KinematicBody2D
 export (int) var speed
 var friction = 0.5

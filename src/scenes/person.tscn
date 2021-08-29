@@ -1,29 +1,48 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/scenes/movable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scripts/person.gd" type="Script" id=2]
-[ext_resource path="res://assets/icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/people/Mark/Mark-frontleft.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 34.5486
-height = 66.4004
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 95.384, 209.679 )
 
-[node name="person" instance=ExtResource( 1 )]
+[sub_resource type="Animation" id=2]
+resource_name = "walking"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="person" type="KinematicBody2D"]
 position = Vector2( 340, 294 )
+scale = Vector2( 0.20602, 0.20602 )
 script = ExtResource( 2 )
-speed = 0.6
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 1.90735e-06 )
-scale = Vector2( 1, 1.98326 )
 texture = ExtResource( 3 )
+hframes = 4
+frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0.33371, 0 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.78519, 29.6649 )
 shape = SubResource( 1 )
 
-[node name="new_diriction_timer" type="Timer" parent="." index="2"]
+[node name="change_direction_timer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
 
-[connection signal="timeout" from="new_diriction_timer" to="." method="_on_new_diriction_timer_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/walking = SubResource( 2 )
+
+[connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]

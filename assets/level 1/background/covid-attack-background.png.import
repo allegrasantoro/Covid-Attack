@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mark-frontright.png-c11fd846e74d8c6bb3007437fc60acef.stex"
+path="res://.import/covid-attack-background.png-fcc291a11d49eb45267496cc5e5d1950.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/people/Mark/Mark-frontright.png"
-dest_files=[ "res://.import/Mark-frontright.png-c11fd846e74d8c6bb3007437fc60acef.stex" ]
+source_file="res://assets/level 1/background/covid-attack-background.png"
+dest_files=[ "res://.import/covid-attack-background.png-fcc291a11d49eb45267496cc5e5d1950.stex" ]
 
 [params]
 

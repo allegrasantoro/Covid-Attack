@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/scripts/level1.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/Person.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scenes/Covid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/level 1/background/covid-attack-background.png" type="Texture" id=4]
+
+[node name="Level 1" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 1544, 904 )
+texture = ExtResource( 4 )
+
+[node name="Exits" type="Area2D" parent="Background"]
+position = Vector2( -1536, -896 )
+
+[node name="Shop1Exit" type="CollisionPolygon2D" parent="Background/Exits" groups=[
+"exits",
+]]
+position = Vector2( 2832, 376 )
+polygon = PoolVector2Array( -192, 240, -224, 280, 192, 280, 208, 248 )
+
+[node name="Shop2Exit" type="CollisionPolygon2D" parent="Background/Exits" groups=[
+"exits",
+]]
+position = Vector2( 1920, 392 )
+polygon = PoolVector2Array( -216, 232, -240, 264, 176, 256, 192, 232 )
+
+[node name="Shop3Exit" type="CollisionPolygon2D" parent="Background/Exits" groups=[
+"exits",
+]]
+position = Vector2( 440, 904 )
+polygon = PoolVector2Array( -392, 552, -56, 216, -24, 224, -344, 552 )
+
+[node name="StairsExit" type="CollisionPolygon2D" parent="Background/Exits" groups=[
+"exits",
+]]
+position = Vector2( 888, 680 )
+polygon = PoolVector2Array( -352, 296, -288, 296, 40, -56, -8, -56 )
+
+[node name="SideExit" type="CollisionPolygon2D" parent="Background/Exits" groups=[
+"exits",
+]]
+position = Vector2( 1504, 1184 )
+scale = Vector2( 1.13403, 0.882207 )
+polygon = PoolVector2Array( -1566.1, 661.976, -1584, 960, 1600, 952, 1600, -264, 1784.79, -262.977, 1792, 1088, -1664, 1080, -1664.86, 770.794 )
+
+[node name="OutsideExit" type="CollisionPolygon2D" parent="Background/Exits" groups=[
+"exits",
+]]
+position = Vector2( 1272, 424 )
+polygon = PoolVector2Array( -208, 208, -248, 248, 160, 248, 192, 208 )
+
+[node name="Floor" type="Area2D" parent="Background"]
+visible = false
+
+[node name="FloorArea" type="CollisionPolygon2D" parent="Background/Floor"]
+polygon = PoolVector2Array( -656, -280, 1528, -280, 1984, -280, 2000, 1248, -1928, 1248, -1912, 968 )
+
+[node name="MovingEntities" type="YSort" parent="."]
+
+[node name="Covid" parent="MovingEntities" instance=ExtResource( 3 )]
+position = Vector2( 1578.4, 904 )
+
+[node name="person2" parent="MovingEntities" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 2715, 637 )
+scale = Vector2( 0.858114, 0.858114 )
+
+[node name="PeopleSpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="PeopleSpawnTimer" to="." method="_on_PeopleSpawnTimer_timeout"]

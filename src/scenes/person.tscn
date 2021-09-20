@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/scripts/person.gd" type="Script" id=2]
-[ext_resource path="res://assets/people/Mark/Mark-frontleft.png" type="Texture" id=3]
+[ext_resource path="res://assets/level 1/people/Mark/Mark-frontleft.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 95.384, 209.679 )
@@ -29,13 +29,13 @@ scale = Vector2( 0.20602, 0.20602 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 1.90735e-06 )
+position = Vector2( 3.63623, -123.635 )
 texture = ExtResource( 3 )
 hframes = 4
 frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.78519, 29.6649 )
+position = Vector2( -16.3305, -119.424 )
 shape = SubResource( 1 )
 
 [node name="change_direction_timer" type="Timer" parent="."]

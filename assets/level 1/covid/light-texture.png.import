@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mark-frontleft.png-acd841d1d1597a3b8464b98885db9fbe.stex"
+path="res://.import/light-texture.png-2e74be34c1e3addc5f41c89fa3eded15.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/people/Mark/Mark-frontleft.png"
-dest_files=[ "res://.import/Mark-frontleft.png-acd841d1d1597a3b8464b98885db9fbe.stex" ]
+source_file="res://assets/level 1/covid/light-texture.png"
+dest_files=[ "res://.import/light-texture.png-2e74be34c1e3addc5f41c89fa3eded15.stex" ]
 
 [params]
 

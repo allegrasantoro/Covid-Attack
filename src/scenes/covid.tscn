@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scripts/covid.gd" type="Script" id=1]
-[ext_resource path="res://assets/covid/Covid.png" type="Texture" id=2]
+[ext_resource path="res://assets/level 1/covid/Covid.png" type="Texture" id=2]
+[ext_resource path="res://assets/level 1/covid/light.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 140.988
@@ -24,18 +25,30 @@ tracks/0/keys = {
 }
 
 [node name="covid" type="KinematicBody2D"]
-position = Vector2( 424.021, 221.749 )
+position = Vector2( 397.052, 211.261 )
 scale = Vector2( 0.425749, 0.425749 )
 script = ExtResource( 1 )
-speed = 200
+speed = 400
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+position = Vector2( 6.10352e-05, 0 )
+scale = Vector2( 6.45348, 6.45348 )
+texture = ExtResource( 4 )
+color = Color( 0.956863, 0.0431373, 0.0431373, 1 )
+energy = 0.8
+mode = 2
+range_z_max = 0
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 488.927, 281.275 )
+light_mask = 3
+position = Vector2( 11.744, 0 )
+z_index = 1
 texture = ExtResource( 2 )
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 488.551, 282.932 )
+visible = false
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

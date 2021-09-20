@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mark-retroleft.png-311045bd2a73eeeb07209ff736841fa4.stex"
+path="res://.import/Mark-retroright.png-d76a2f516db844b51db76f4bf6fc15a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/people/Mark/Mark-retroleft.png"
-dest_files=[ "res://.import/Mark-retroleft.png-311045bd2a73eeeb07209ff736841fa4.stex" ]
+source_file="res://assets/level 1/people/Mark/Mark-retroright.png"
+dest_files=[ "res://.import/Mark-retroright.png-d76a2f516db844b51db76f4bf6fc15a5.stex" ]
 
 [params]
 

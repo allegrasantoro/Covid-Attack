@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/covid-oneframe.png-82156d6b8aa817ce0f9cba607228359a.stex"
+path="res://.import/covid-oneframe.png-47adedbfc925b25d354259b8f520034c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/covid/covid-oneframe.png"
-dest_files=[ "res://.import/covid-oneframe.png-82156d6b8aa817ce0f9cba607228359a.stex" ]
+source_file="res://assets/level 1/covid/covid-oneframe.png"
+dest_files=[ "res://.import/covid-oneframe.png-47adedbfc925b25d354259b8f520034c.stex" ]
 
 [params]
 

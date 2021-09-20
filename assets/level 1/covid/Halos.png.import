@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mark-retroright.png-e72106496f02019e732a56a9bf5e9fb6.stex"
+path="res://.import/Halos.png-4464c8f2ab7e65e03255984be60601af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/people/Mark/Mark-retroright.png"
-dest_files=[ "res://.import/Mark-retroright.png-e72106496f02019e732a56a9bf5e9fb6.stex" ]
+source_file="res://assets/level 1/covid/Halos.png"
+dest_files=[ "res://.import/Halos.png-4464c8f2ab7e65e03255984be60601af.stex" ]
 
 [params]
 

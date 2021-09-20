@@ -11,11 +11,20 @@ config_version=4
 [application]
 
 config/name="covid-attack"
-config/icon="res://assets/covid/covid-oneframe.png"
+config/icon="res://assets/level 1/covid/covid-oneframe.png"
 
 [autoload]
 
 Global="*res://src/scenes/Global.tscn"
+
+[display]
+
+window/size/width=3072
+window/size/height=1800
+window/size/resizable=false
+window/size/fullscreen=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input]
 

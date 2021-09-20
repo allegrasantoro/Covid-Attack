@@ -4,14 +4,17 @@ var friction = 0.5
 var acceleration = 0.1
 var velocity = Vector2.ZERO
 
+
 func _ready():
 	#$AnimationPlayer.play("covid idle")
 	pass
 
+
 func _physics_process(_delta):
 	manage_velocity()
 	velocity = move_and_slide(velocity)
-	
+
+
 func manage_velocity():
 	var direction = get_input() 
 	

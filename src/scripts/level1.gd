@@ -9,4 +9,5 @@ func _ready():
 
 
 func _on_PeopleSpawnTimer_timeout():
-	Spawning.spawn_person(exits, $MovingEntities)
+	#Spawning.spawn_person(exits, $MovingEntities)
+	pass

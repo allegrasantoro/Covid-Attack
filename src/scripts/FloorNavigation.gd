@@ -1,8 +1,9 @@
 extends Navigation2D
 
+
 var path = []
 
-var PointInPolygonGenerator = load("res://src/scripts/point_in_polygon_generator.gd").new()
+var PointInPolygonGenerator = load("res://src/scripts/PointInPolygonGenerator.gd").new()
 
 
 func generate_random_point():

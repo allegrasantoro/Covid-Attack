@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://src/scripts/person.gd" type="Script" id=2]
+[ext_resource path="res://assets/level 1/people/animations/fadingAway.tres" type="Animation" id=1]
+[ext_resource path="res://src/scripts/Person.gd" type="Script" id=2]
 [ext_resource path="res://assets/level 1/people/Mark/Mark-frontleft.png" type="Texture" id=3]
+[ext_resource path="res://assets/level 1/people/animations/infected.tres" type="Animation" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 95.384, 209.679 )
@@ -25,30 +27,47 @@ tracks/0/keys = {
 
 [sub_resource type="RectangleShape2D" id=3]
 
-[node name="person" type="KinematicBody2D"]
+[node name="person" type="KinematicBody2D" groups=[
+"People",
+]]
 position = Vector2( 340, 294 )
 scale = Vector2( 0.20602, 0.20602 )
+collision_layer = 16
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 3.63623, -123.635 )
 texture = ExtResource( 3 )
 hframes = 4
-frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -16.3305, -119.424 )
+[node name="bodyArea" type="Area2D" parent="."]
+position = Vector2( -16.3306, -119.424 )
+scale = Vector2( 1, 1 )
+collision_layer = 32
+collision_mask = 32
+
+[node name="bodyCollisionShape" type="CollisionShape2D" parent="bodyArea"]
+visible = false
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="change_direction_timer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/fading away" = ExtResource( 1 )
+anims/infected = ExtResource( 4 )
 anims/walking = SubResource( 2 )
 
 [node name="feet" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
 
+[node name="CanExit" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="bodyArea" to="." method="_on_bodyArea_body_entered"]
 [connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]
+[connection signal="timeout" from="CanExit" to="." method="_on_CanExit_timeout"]

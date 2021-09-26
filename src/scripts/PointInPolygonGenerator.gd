@@ -8,14 +8,15 @@ func get_random_point_in_polygon(collision_polygon):
 	var triangles_areas_arrays = get_areas_of_triangles(triangulated_polygon_array, collision_polygon.polygon, triangle_points_coordinates)
 	var chosen_triangle_point = triangle_points_coordinates[get_random_triangle_index(triangles_areas_arrays)]
 	
-	print ("triangle_points_coordinates[0][0]:" + String(triangle_points_coordinates[0][0]))
+	#print ("triangle_points_coordinates[0][0]:" + String(triangle_points_coordinates[0][0]))
+	#print ("hello" + String(chosen_triangle_point))
 	
-	var vertexA = Vector2(triangle_points_coordinates[0][0])
-	var vertexB = Vector2(triangle_points_coordinates[0][1])
-	var vertexC = Vector2(triangle_points_coordinates[0][2])
+	var vertexA = Vector2(chosen_triangle_point[0])
+	var vertexB = Vector2(chosen_triangle_point[1])
+	var vertexC = Vector2(chosen_triangle_point[2])
 	var point = vertexA + sqrt(randf()) * (-vertexA + vertexB + randf() * (vertexC - vertexB))
 	
-	print("spawn spoint:" + String(point))
+	#print("spawn spoint:" + String(point))
 	return point
 
 
@@ -31,7 +32,7 @@ func get_coordinates_of_points_in_polygon(triangulated_polygon_array, collision_
 			points_array[current_triangle].append(collision_polygon[triangulated_polygon_array[(triangle*3)+point]])
 		current_triangle += 1
 		
-	print("points array: " + String(points_array))
+	#print("points array: " + String(points_array))
 	
 	return points_array
 
@@ -42,7 +43,7 @@ func get_areas_of_triangles(triangulated_polygon_array, collision_polygon, point
 	for i in range(0, points_array.size()):
 		areas_array.append(get_triangle_area_from_coordinates(points_array[i]))
 	
-	print(String(areas_array))
+	#print(String(areas_array))
 	
 	return areas_array
 
@@ -69,10 +70,10 @@ func get_random_triangle_index(triangles_areas_arrays):
 	#by taking the area into consideraion a point in a bigger triangle will not be more likely to be chosen
 	for i in range(0, triangles_areas_arrays.size()):
 		if random_number < triangles_areas_arrays[i] :
-			print("i :" + String(i) + " number:" + String(triangles_areas_arrays[i]))
+			#print("i :" + String(i) + " number:" + String(triangles_areas_arrays[i]))
 			return i
 		
-		print("current i :" + String(i) + " current number:" + String(triangles_areas_arrays[i]))
+		#print("current i :" + String(i) + " current number:" + String(triangles_areas_arrays[i]))
 		random_number -= triangles_areas_arrays[i]
 		
 	print("error in get_random_triangle_index method")
@@ -82,5 +83,5 @@ func get_sum_of_array(array):
 	var sum = 0
 	for integer in array:
 		sum += integer
-	print("sum: " + String(sum))
+	#print("sum: " + String(sum))
 	return sum

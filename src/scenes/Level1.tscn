@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/scripts/level1.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/PixelFont.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/scenes/Covid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/level 1/background/covid-attack-background.png" type="Texture" id=4]
 
@@ -14,6 +15,14 @@ extents = Vector2( 424, 1272 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 5.2333, 98.4506 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 90
+font_data = ExtResource( 2 )
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource( 1 )
@@ -97,5 +106,86 @@ position = Vector2( 1578.4, 904 )
 [node name="PeopleSpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BestScoreText" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -392.0
+margin_top = -112.0
+margin_right = 104.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 5 )
+text = "Best score:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerNumber" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -248.0
+margin_top = 92.0
+margin_right = 248.0
+margin_bottom = 255.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BestScoreNumber" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 72.0
+margin_top = -120.0
+margin_right = 280.0
+margin_bottom = -29.0
+custom_fonts/font = SubResource( 6 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentScoreNumber" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 200.0
+margin_top = -256.0
+margin_right = 408.0
+margin_bottom = -165.0
+custom_fonts/font = SubResource( 6 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentScoreText" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -400.0
+margin_top = -248.0
+margin_right = 175.0
+margin_bottom = -85.0
+custom_fonts/font = SubResource( 5 )
+text = "Current score:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
 [connection signal="body_entered" from="Background/Exits" to="." method="_on_Exits_body_entered"]
 [connection signal="timeout" from="PeopleSpawnTimer" to="." method="_on_PeopleSpawnTimer_timeout"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]

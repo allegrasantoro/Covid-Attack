@@ -83,4 +83,7 @@ func destroy(animation_name):
 
 func _on_bodyArea_body_entered(body):
 	if body.is_in_group('Covid'):
+		Global.current_score = Global.current_score + 1
+		if Global.best_score < Global.current_score:
+			Global.best_score = Global.current_score
 		destroy("infected")
